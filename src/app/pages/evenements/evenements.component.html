@@ -1,1 +1,32 @@
-<p>evenements works!</p>
+<div class="evenements-container">
+  <h2>📜 Événements Historiques</h2>
+
+  <div class="evenement-card" *ngFor="let evenement of evenements; let i = index">
+    <img [src]="evenement.image" alt="Image de l'événement" class="event-img" />
+    <div class="evenement-details">
+      <h3>{{ evenement.nom }}</h3>
+      <p><strong>Période :</strong> {{ evenement.periode }}</p>
+      <p>{{ evenement.description }}</p>
+    </div>
+
+    <div class="commentaires">
+      <h4>💬 Commentaires</h4>
+      <ul>
+        <li *ngFor="let com of evenement.commentaires">{{ com }}</li>
+      </ul>
+      <input [(ngModel)]="nouveauxCommentaires[i]" placeholder="Ajoutez un commentaire..." />
+      <button (click)="ajouterCommentaire(i)">Envoyer</button>
+    </div>
+  </div>
+
+  <hr />
+  <h3>➕ Ajouter un événement</h3>
+  <form (submit)="ajouterEvenement(); $event.preventDefault()" class="form-contribution">
+    <input type="text" placeholder="Nom de l'événement" [(ngModel)]="nouvelEvenement.nom" name="nom" />
+    <input type="text" placeholder="Période" [(ngModel)]="nouvelEvenement.periode" name="periode" />
+    <textarea placeholder="Description" [(ngModel)]="nouvelEvenement.description" name="description"></textarea>
+    <input type="file" (change)="onImageSelected($event)" />
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Aperçu" class="preview" />
+    <button type="submit">Soumettre</button>
+  </form>
+</div>
