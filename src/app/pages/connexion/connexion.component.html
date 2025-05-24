@@ -1,0 +1,39 @@
+<div class="connexion-container">
+  <div class="connexion-illustration">
+    <img src="https://img.freepik.com/vecteurs-premium/conception-illustrations-vectorielles-icones-musees_861234-3792.jpg?semt=ais_hybrid&w=740" alt="Illustration historique">
+  </div>
+
+  <div class="connexion-formulaire">
+    <h1>Connexion</h1>
+
+    <form (ngSubmit)="login()">
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" [(ngModel)]="loginData.email" name="email" required>
+
+      <label for="motdepasse">Mot de passe</label>
+      <input type="password" id="motdepasse" [(ngModel)]="loginData.password" name="password" required>
+
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <div class="connexion-sociaux">
+      <p>Ou connectez-vous avec :</p>
+      <button class="google" (click)="loginWith('Google')">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google" />
+      </button>
+      <button class="facebook" (click)="loginWith('Facebook')">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook" />
+      </button>
+      <button class="apple" (click)="loginWith('Apple')">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple" />
+      </button>
+    </div>
+
+    <p class="inscription-lien">
+      Pas encore de compte ? <a routerLink="/inscription">Créer un compte</a>
+    </p>
+  </div>
+</div>
+
+
+

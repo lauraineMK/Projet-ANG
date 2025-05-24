@@ -1,0 +1,95 @@
+<button (click)="goToConnexion()">Connexion</button>
+<section class="hero">
+  <img src="https://i.notretemps.com/2000x1125/smart/2023/10/19/musee-du-louvre.jpg" alt="Musée" />
+  <h1>Bienvenue sur Chrono Explorer</h1>
+  <p>Explorez l’histoire à travers les époques.</p>
+  <a routerLink="/timeline" class="btn">Explorer la Frise</a>
+</section>
+
+<section class="intro">
+  <h2>Notre mission</h2>
+  <p>Une plateforme pour explorer, apprendre et contribuer à la préservation de notre patrimoine historique.</p>
+  <img src="https://www.pariszigzag.fr/wp-content/uploads/2024/06/salle-mollien-louvre-paris-zigzag-1-1-1.jpg" alt="Livre ancien" />
+</section>
+
+<section class="evenements">
+  <h2>Événements récents</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://static.nationalgeographic.fr/files/styles/image_3200/public/09-napoleon-waterloo.jpg?w=1900&h=1314" alt="Événement 1">
+      <h3>La bataille de Waterloo</h3>
+      <a routerLink="/evenements">Voir plus</a>
+    </div>
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Declaration_of_Independence_%281819%29%2C_by_John_Trumbull.jpg" alt="Événement 2">
+      <h3>Déclaration d’indépendance</h3>
+      <a routerLink="/evenements">Voir plus</a>
+    </div>
+    <div class="card">
+      <img src="https://cdn.futura-sciences.com/buildsv6/images/square320/1/9/0/190c2fa92a_50152217_lune-apollo-11-recadre-e.jpg" alt="Événement 3">
+      <h3>Premier pas sur la Lune</h3>
+      <a routerLink="/evenements">Voir plus</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="quiz">
+  <h2>Testez vos connaissances !</h2>
+  <p>Participez à un quiz pour découvrir l’histoire autrement.</p>
+  <a routerLink="/quiz" class="btn">Lancer un quiz</a>
+</section>
+
+<section class="contribuer">
+  <h2>Contribuez à l’histoire</h2>
+  <p>Connectez-vous pour proposer des événements historiques importants.</p>
+  <a routerLink="/connexion" class="btn">Contribuer</a>
+</section>
+
+<section class="contact-chatbot">
+  <h2>Une question ?</h2>
+  <p>Contactez-nous ou parlez avec notre assistant intelligent !</p>
+  <a routerLink="/contact" class="btn">Contact</a>
+</section>
+
+
+<section class="explorer-plus">
+  <h2>Explorer +</h2>
+  <div class="explorer-columns">
+    <div>
+      <h4>Fonctionnalités</h4>
+      <ul>
+        <li><a routerLink="/calendrier">📅 Calendrier</a></li>
+        <li><a routerLink="/chatbot">🤖 Chatbot IA</a></li>
+        <li><a routerLink="/ressources">📂 Ressources</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Utilisateur</h4>
+      <ul>
+        <li><a routerLink="/mon-compte">👤 Mon Compte</a></li>
+        <li><a routerLink="/connexion">🔑 Connexion</a></li>
+        <li><a routerLink="/inscription">📝 Inscription</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Administration</h4>
+      <ul>
+        <li><a routerLink="/admin">🛠️ Admin</a></li>
+        <li><a routerLink="/dashboard">📊 Dashboard</a></li>
+        <li><a routerLink="/contributions">✍️ Contributions</a></li>
+        <li><a routerLink="/commentaires">💬 Commentaires</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Informations</h4>
+      <ul>
+        <li><a routerLink="/evenements/1">📄 Fiche Événement</a></li>
+        <li><a routerLink="/not-found">🚫 Page 404</a></li>
+        <li><a routerLink="/a-propos">ℹ️ À propos</a></li>
+        <li><a routerLink="/patrimoine">🏛️ Patrimoine</a></li>
+      </ul>
+    </div>
+  </div>
+</section>

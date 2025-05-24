@@ -1,0 +1,20 @@
+<div class="chatbot-bulle" (click)="toggleChat()">
+    💬
+  </div>
+  
+  <div class="chatbot-panel" *ngIf="isOpen">
+    <div class="chatbot-header">
+      <span>Assistant Historique</span>
+      <button (click)="toggleChat()">✖</button>
+    </div>
+    <div class="chatbot-messages">
+      <div *ngFor="let message of messages" [class.user]="message.from === 'user'" [class.bot]="message.from === 'bot'">
+        {{ message.text }}
+      </div>
+    </div>
+    <form (submit)="envoyerMessage()" class="chatbot-form">
+      <input type="text" [(ngModel)]="nouveauMessage" name="message" placeholder="Posez une question..." required>
+      <button type="submit">➤</button>
+    </form>
+  </div>
+  

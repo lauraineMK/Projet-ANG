@@ -1,0 +1,37 @@
+.quiz-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #fefcf8;
+  border: 1px solid #d1bfa7;
+  border-radius: 10px;
+  padding: 2rem;
+  font-family: 'Georgia', serif;
+}
+
+h2 {
+  text-align: center;
+  color: #5a3e1b;
+}
+
+.question-block {
+  margin-top: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 8px 16px;
+  background-color: #b2915f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
