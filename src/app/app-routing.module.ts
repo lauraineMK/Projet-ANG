@@ -15,6 +15,8 @@ import { TimelineComponent } from './pages/timeline/timeline.component';
 export const routes: Routes = [
   { path: '', component: AccueilComponent },
   { path: 'evenements', component: EvenementsComponent },
+  { path: 'evenements', loadComponent: () => import('./pages/evenements/evenements.component').then(m => m.EvenementsComponent) },
+
   { path: 'evenement/:id', component: FicheEvenementComponent },
   { path: 'a-propos', component: AProposComponent },
   { path: 'contact', component: ContactComponent },
