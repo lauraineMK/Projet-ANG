@@ -1,57 +1,63 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './quiz.component.html',
-  styleUrls: ['./quiz.component.css'],
-  imports: [CommonModule, FormsModule]
+  styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent {
-  currentQuestion = 0;
+  quiz: any[] = [];
+  current = 0;
+  loading = false;
   userAnswers: number[] = [];
+  theme = '';
+  score: number | null = null;
 
-  questions = [
-    {
-      question: 'En quelle année a eu lieu la Révolution française ?',
-      options: ['1776', '1789', '1812', '1848'],
-      answer: 1
-    },
-    {
-      question: 'Qui était le premier empereur romain ?',
-      options: ['Jules César', 'Néron', 'Auguste', 'Caligula'],
-      answer: 2
-    },
-    {
-      question: 'Quel pays a lancé le premier satellite dans l’espace ?',
-      options: ['USA', 'URSS', 'Chine', 'France'],
-      answer: 1
-    },
-    {
-      question: 'Qui a peint La Joconde ?',
-      options: ['Raphaël', 'Michel-Ange', 'Léonard de Vinci', 'Van Gogh'],
-      answer: 2
-    },
-    {
-      question: 'En quelle année l’ONU a-t-elle été fondée ?',
-      options: ['1919', '1939', '1945', '1955'],
-      answer: 2
-    }
-  ];
+  constructor(private http: HttpClient) {}
 
-  answerQuestion(index: number): void {
-    this.userAnswers[this.currentQuestion] = index;
+  genererQuiz() {
+    this.loading = true;
+    this.http.post<any>('http://localhost:4200/quiz', { theme: this.theme }).subscribe({
+      next: res => {
+        this.quiz = res.quiz;
+        this.userAnswers = Array(this.quiz.length).fill(null);
+        this.current = 0;
+        this.loading = false;
+        this.score = null;
+      },
+      error: () => {
+        alert("Erreur de génération du quiz");
+        this.loading = false;
+      }
+    });
   }
 
-  nextQuestion(): void {
-    if (this.currentQuestion < this.questions.length - 1) {
-      this.currentQuestion++;
+  suivant() {
+    if (this.current < this.quiz.length - 1) {
+      this.current++;
     } else {
-      alert('Quiz terminé !');
-      this.currentQuestion = 0;
-      this.userAnswers = [];
+      this.calculerScore();
     }
+  }
+
+  calculerScore() {
+    let correct = 0;
+    this.quiz.forEach((q, index) => {
+      if (this.userAnswers[index] === q.answer) correct++;
+    });
+    this.score = correct;
+  }
+
+  recommencer() {
+    this.quiz = [];
+    this.userAnswers = [];
+    this.current = 0;
+    this.score = null;
+    this.theme = '';
   }
 }

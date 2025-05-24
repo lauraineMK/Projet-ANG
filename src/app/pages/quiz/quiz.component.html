@@ -1,22 +1,31 @@
 <div class="quiz-container">
-  <h2>Quiz Histoire</h2>
+  <h2>Quiz généré</h2>
 
-  <div class="question-block">
-    <p>{{ questions[currentQuestion].question }}</p>
-    <ul>
-      <li *ngFor="let option of questions[currentQuestion].options; index as i">
-        <label>
-          <input type="radio"
-                 name="q{{ currentQuestion }}"
-                 [value]="i"
-                 [(ngModel)]="userAnswers[currentQuestion]"
-                 (change)="answerQuestion(i)">
-          {{ option }}
-        </label>
-      </li>
-    </ul>
+  <div *ngIf="!quiz.length && !loading && score === null">
+    <input [(ngModel)]="theme" placeholder="Entrez un thème historique" class="input-theme" />
+    <button (click)="genererQuiz()">Générer le quiz</button>
+  </div>
 
-    <button (click)="nextQuestion()">Suivant</button>
+  <div *ngIf="loading" class="loading">Génération en cours...</div>
+
+  <div *ngIf="quiz.length && score === null">
+    <div class="question-block">
+      <h3>Question {{ current + 1 }} / {{ quiz.length }}</h3>
+      <p class="question-text">{{ quiz[current].question }}</p>
+      <ul class="options">
+        <li *ngFor="let option of quiz[current].options; let i = index">
+          <label>
+            <input type="radio" [(ngModel)]="userAnswers[current]" [value]="i" />
+            {{ option }}
+          </label>
+        </li>
+      </ul>
+      <button (click)="suivant()">Suivant</button>
+    </div>
+  </div>
+
+  <div *ngIf="score !== null" class="result-block">
+    <h3>Votre score : {{ score }} / {{ quiz.length }}</h3>
+    <button (click)="recommencer()">Recommencer</button>
   </div>
 </div>
-
