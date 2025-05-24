@@ -1,0 +1,96 @@
+.timeline-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  background-color: #fdfaf3;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.timeline-item.left .timeline-content {
+  flex-direction: row;
+}
+
+.timeline-item.right .timeline-content {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 2px solid #c2a86d;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  gap: 1rem;
+}
+
+.timeline-image {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-right: 2px solid #d3b37c;
+}
+
+.timeline-text {
+  padding: 1rem;
+  font-family: 'Georgia', serif;
+  color: #3b2f2f;
+  width: 100%;
+}
+
+.timeline-text h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.timeline-text p {
+  margin: 0 0 0.75rem;
+  color: #555;
+}
+
+.voir-plus {
+  margin-top: 0.5rem;
+  background-color: #c2a86d;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.voir-plus:hover {
+  background-color: #a3834e;
+}
+
+.favori {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favori span {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.favori span.active {
+  color: #c14444;
+  transform: scale(1.2);
+}
+
+.favori-text {
+  font-size: 0.9rem;
+  color: #5a4533;
+}

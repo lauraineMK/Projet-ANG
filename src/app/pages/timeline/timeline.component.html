@@ -1,1 +1,17 @@
-<p>timeline works!</p>
+<div class="timeline-container">
+  <div *ngFor="let event of timeline; let i = index" class="timeline-item" [ngClass]="{ 'left': i % 2 === 0, 'right': i % 2 !== 0 }">
+    <div class="timeline-content">
+      <img [src]="event.image" alt="{{ event.titre }}" class="timeline-image" />
+      <div class="timeline-text">
+        <h3>{{ event.date }} – {{ event.titre }}</h3>
+        <p>{{ event.description }}</p>
+        <button class="voir-plus" (click)="voirPlus(event)">Voir plus</button>
+
+        <div class="favori" (click)="toggleFavori(event)">
+          <span [class.active]="event.favori">❤️</span>
+          <span class="favori-text">{{ event.favori ? 'Retirer des favoris' : 'Ajouter aux favoris' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
