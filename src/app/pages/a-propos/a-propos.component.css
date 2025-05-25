@@ -1,0 +1,50 @@
+.a-propos {
+  font-family: 'Georgia', serif;
+  background-color: #f9f5f0;
+  padding: 2rem;
+  color: #3e2f1c;
+}
+
+.a-propos h1, .a-propos h2 {
+  color: #b08d57;
+}
+
+.intro, .equipe, .fonctionnalites, .cta {
+  margin-bottom: 2rem;
+}
+
+.team {
+  display: flex;
+  gap: 2rem;
+}
+
+.member {
+  text-align: center;
+}
+
+.member img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background-color: #b08d57;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
