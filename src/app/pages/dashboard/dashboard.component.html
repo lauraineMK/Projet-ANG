@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <h2>Bienvenue {{ userName }} 👋</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card" *ngFor="let stat of stats">
+      <div class="icon">{{ stat.icon }}</div>
+      <div class="info">
+        <h3>{{ stat.value }}</h3>
+        <p>{{ stat.label }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notifications">
+    <h4>🔔 Notifications</h4>
+    <ul>
+      <li *ngFor="let notif of notifications">{{ notif }}</li>
+    </ul>
+  </div>
+
+  <div class="quick-actions">
+    <a routerLink="/mon-compte">👤 Gérer le profil</a>
+    <a routerLink="/evenements">➕ Ajouter un événement</a>
+    <a routerLink="/moderation">🛠️ Aller à la modération</a>
+  </div>
+</div>
