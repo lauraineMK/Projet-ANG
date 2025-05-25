@@ -1,1 +1,24 @@
-<p>moderation works!</p>
+<div class="moderation-container">
+  <h2>🧾 Contributions à modérer</h2>
+
+  <div class="filters">
+    <label><input type="checkbox" /> Événements</label>
+    <label><input type="checkbox" /> Commentaires</label>
+    <label><input type="checkbox" /> Images</label>
+  </div>
+
+  <ul>
+    <li *ngFor="let contrib of contributions">
+      <div class="preview">
+        <img *ngIf="contrib.image" [src]="contrib.image" alt="aperçu" />
+        <div class="content">
+          <h3>{{ contrib.titre }}</h3>
+          <p><strong>Auteur :</strong> {{ contrib.auteur }} | <strong>Type :</strong> {{ contrib.type }} | <strong>Date :</strong> {{ contrib.date }}</p>
+          <p>{{ contrib.description }}</p>
+          <button (click)="valider(contrib.titre)">✅ Valider</button>
+          <button (click)="refuser(contrib.titre)">❌ Refuser</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
